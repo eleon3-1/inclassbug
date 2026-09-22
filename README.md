@@ -1,17 +1,5 @@
-# bug_inclass
+My app uses StatefulWidget and setState() whenever something on the screen needs to change. _TactileDeckAppState keeps track of dark mode because the theme affects the whole app. It sends the current theme and a function to ControlDeckScreen so that screen can switch the theme.
 
-A new Flutter project.
+_ControlDeckScreenState keeps track of the total taps, power level, and system status. When I tap a button, _triggerAction() updates the tap count and status. When I move the slider, setState() updates the power level, so the slider and energy percentage match.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Each tactile button keeps track of whether it is pressed. That way, pressing one button does not make the others look pressed. The superhero panel also keeps track of its own energy and forcefield. I put values used by multiple widgets in their parent and let each widget handle the values that only affect itself.
